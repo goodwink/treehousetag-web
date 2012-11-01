@@ -1,0 +1,69 @@
+<div class="row spread-row">
+  <div class="six columns hide-for-small">
+    <div class="row">
+      <div class="twelve columns">
+        <ul class="selling-points">
+          <li class="icon-leaf">Meet other <strong>trustworthy parents</strong></li>
+          <li class="icon-leaf">Find new <strong>friends</strong> for your children <strong>who share their interests</strong></li>
+          <li class="icon-leaf">Plan <strong>fun activities</strong> to do with your child</li>
+          <li class="icon-leaf">Get <strong>coupons</strong> for kid-friendly activities and restaurants</li>
+          <li class="icon-leaf">Form groups with other parents and <strong>schedule group events</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="ten columns offset-two">
+        <img src="/img/caitlinducks.jpg" />
+      </div>
+    </div>
+  </div>
+  <div class="six columns">
+    <div class="panel radius">
+      <i class="icon-leaf big-leaf"></i>
+      <p>Find <strong>playdates</strong>, activities, and more for your children <strong>with friends they'll love</strong> who share their interests.</p>
+      <form id="signup-step-one">
+        <label class="hide-for-small">Name</label>
+        <div class="row">
+          <div class="six columns">
+            <input type="text" ng-model="signup.firstName" placeholder="First name" />
+          </div>
+          <div class="six columns">
+            <input type="text" ng-model="signup.lastName" placeholder="Last name" />
+          </div>
+        </div>
+        <label class="hide-for-small">Account</label>
+        <div class="row">
+          <div class="six columns">
+            <input type="email" ng-model="signup.email" placeholder="E-mail address" />
+          </div>
+          <div class="six columns">
+            <input type="password" ng-model="signup.password" placeholder="Password" />
+          </div>
+        </div>
+        <label class="hide-for-small">Location</label>
+        <div class="row">
+          <div class="six mobile-two columns">
+            <input id="zip-code" type="text" ng-model="signup.zipCode" pattern="[0-9]*" placeholder="Zip code" />
+          </div>
+          <div class="or one column hide-for-small">
+            or
+          </div>
+          <div class="three mobile-two columns inline-buttons end">
+            <a href ng-click="locateMe()" class="small secondary radius button icon-button">
+              <i class="icon-map-marker"></i>
+              Find me
+            </a>
+          </div>
+        </div>
+        <div class="row spread-row">
+          <div class="six columns offset-by-six">
+            <a href="#/children" class="radius large button icon-button mobile-two">
+              <i class="icon-ok"></i>
+              Sign up for free!
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

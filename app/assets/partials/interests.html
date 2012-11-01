@@ -1,0 +1,49 @@
+<div class="row spread-row">
+  <div class="eight columns offset-by-two end">
+    <div class="panel radius">
+      <div class="row">
+        <div class="wizard-bar">
+        </div>
+        <div class="wizard-bar completed" style="width:90%">
+        </div>
+        <div class="wizard-step completed" style="left:0%">
+          <i class="icon-ok"></i>
+        </div>
+        <div class="wizard-step completed" style="left:30%">
+          <i class="icon-ok"></i>
+        </div>
+        <div class="wizard-step completed" style="left:62%">
+          3
+        </div>
+      </div>
+      <div class="row spread-row">
+        <div class="row">
+          <div class="twelve columns">
+            <p>
+              What do your kids like to do?  Just start typing and we'll try to match existing
+              interests or you can create new, unique interests.
+            </p>
+          </div>
+        </div>
+
+        <div class="row" ng-repeat="child in signup.children">
+          <div class="panel ten columns offset-by-one end">
+            <form class="interests">
+              <label>{{child.firstName}}'s Interests</label>
+              <input ui-select2="tagConfig" ng-multiple="true" type="text" ng-model="child.interests" class="interest-tags">
+            </form>
+          </div>
+        </div>
+
+        <div class="row spread-row">
+          <div class="three columns offset-by-nine">
+            <a href="#/home" ng-click="createAccount()" class="radius button icon-button mobile-two">
+              <i class="icon-ok"></i>
+              Finish
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

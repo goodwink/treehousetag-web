@@ -1,0 +1,86 @@
+<div class="row spread-row">
+  <div class="eight columns offset-by-two end">
+    <div class="panel radius">
+      <div class="row">
+        <div class="wizard-bar">
+        </div>
+        <div class="wizard-bar completed" style="width:50%">
+        </div>
+        <div class="wizard-step completed" style="left:0%">
+          <i class="icon-ok"></i>
+        </div>
+        <div class="wizard-step completed" style="left:30%">
+          2
+        </div>
+        <div class="wizard-step" style="left:62%">
+          3
+        </div>
+      </div>
+      <div class="row spread-row">
+        <div class="row">
+          <div class="twelve columns">
+            <p>
+              Next we'll add your children...
+            </p>
+          </div>
+        </div>
+        
+        <div class="row">
+            <div id="child-timeline" class="ten columns end offset-by-one hide">
+              <svg>
+                <line x1="0%" y1="35px" x2="100%" y2="35px" class="main" />
+                <line x1="10%" y1="30px" x2="10%" y2="40px" class="tick" />
+                <line x1="20%" y1="30px" x2="20%" y2="40px" class="tick" />
+                <line x1="30%" y1="30px" x2="30%" y2="40px" class="tick" />
+                <line x1="40%" y1="30px" x2="40%" y2="40px" class="tick" />
+                <line x1="50%" y1="30px" x2="50%" y2="40px" class="tick" />
+                <line x1="60%" y1="30px" x2="60%" y2="40px" class="tick" />
+                <line x1="70%" y1="30px" x2="70%" y2="40px" class="tick" />
+                <line x1="80%" y1="30px" x2="80%" y2="40px" class="tick" />
+                <line x1="90%" y1="30px" x2="90%" y2="40px" class="tick" />
+              </svg>
+            </div>
+        </div>
+
+        <form id="signup-step-two">
+          <div class="row spread-row" ng-repeat="child in signup.children">
+            <div class="three columns">
+              <input type="text" ng-model="child.firstName" placeholder="First name" />
+            </div>
+            <div class="three columns">
+              <input datepicker type="text" ng-model="child.birthDate" placeholder="Birthday" />
+            </div>
+            <div class="three columns">
+              <ul class="button-group radius">
+                <li>
+                  <a href ng-class="genderClasses(child, 'boy')" ng-click="child.gender = 'boy'">
+                    Boy
+                  </a>
+                </li>
+                <li>
+                  <a href ng-class="genderClasses(child, 'girl')" ng-click="child.gender = 'girl'">
+                    Girl
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="three columns end">
+              <a href class="small radius button icon-button" ng-click="signup.children.push({})" ng-show="$last">
+                <i class="icon-plus"></i>
+                Add Child
+              </a>
+            </div>
+          </div>
+        </form>
+        <div class="row spread-row">
+          <div class="three columns offset-by-nine">
+            <a href="#/interests" class="radius button icon-button mobile-two">
+              Continue
+              <i class="icon-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

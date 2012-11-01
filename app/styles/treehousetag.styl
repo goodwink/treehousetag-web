@@ -1,0 +1,460 @@
+@import 'nib'
+@import 'nib/gradients'
+
+facebookBlue = #3b5998
+treehouseGreen = #69ad25
+treehouseLightGreen = #b6e586
+treehouseLighterGreen = #f0fae7
+treehouseBrown = #380904
+treehouseYellow = #abc420
+darkSubtleGradient = #e5e5e5
+lightSubtleGradient = #e9e9e9
+boyColor = #48b3ba
+girlColor = #f2aef9
+boyDarkColor = darken(boyColor, 50%)
+girlDarkColor = desaturate(darken(girlColor, 50%), 80%)
+txtColor = treehouseBrown
+alertColor = #f95929
+
+body {
+  background: desaturate(lighten(treehouseGreen, 90%), 70%);
+}
+
+.panel {
+  background: desaturate(lighten(treehouseGreen, 90%), 70%);
+}
+
+table {
+  background: desaturate(lighten(treehouseGreen, 90%), 70%);
+}
+
+.container {
+  background-image: url('/img/greenlinen.png');
+}
+
+.nav-bar {
+  background: treehouseBrown;
+  margin-bottom: 0px;
+}
+
+.first-row {
+  padding-top: 5px;
+}
+
+a {
+  i {
+    line-height: 11px;
+    font-size: 22px;
+    vertical-align: middle;
+  }
+}
+
+.icon-button {
+  padding-top: 12px;
+}
+
+.icon-button.small {
+  padding-top: 9px;
+  padding-bottom: 6px;
+}
+
+.inline-buttons {
+  padding-top: 2px;
+}
+
+form {
+  .row {
+    .columns.inline-buttons {
+      padding-top: 2px;
+    }
+
+    .or {
+      text-align: center;
+      vertical-align: middle;
+      margin-top: 8px;
+    }
+  }
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+  background: treehouseLighterGreen;
+  border: 1px solid treehouseLightGreen;
+
+  &:focus {
+    background: darken(treehouseLighterGreen, 5%);
+  }
+}
+
+i.big-leaf {
+  float: left;
+  font-size: 71px;
+  color: treehouseGreen;
+  margin-right: 10px;
+}
+
+p {
+  font-size: 17px;
+}
+
+.spread-row {
+  padding-top: 20px;
+}
+
+label {
+  color: txtColor;
+}
+
+ul.selling-points {
+  li[class^="icon-"]:before, li[class*=" icon-"]:before {
+    color: treehouseGreen;
+    text-indent: 0px;
+    padding-right: 10px;
+  }
+}
+
+.wizard-bar {
+  height: 30px;
+  border-radius: 15px;
+  box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(darkSubtleGradient, lightSubtleGradient);
+  position: absolute;
+  width: 94%;
+  overflow: visible;
+}
+
+.wizard-step {
+  height: 40px;
+  width: 80px;
+  border-radius: 20px;
+  box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(darkSubtleGradient, lightSubtleGradient);
+  position: relative;
+  float: left;
+  margin-top: -5px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 40px;
+  color: darken(darkSubtleGradient, 20%);
+  text-shadow: 0px 0px -3px #222;
+  font-weight: bold;
+}
+
+.completed {
+  color: #e5e5e5;
+  background: linear-gradient(lighten(treehouseGreen, 5%), darken(treehouseGreen, 5%))
+}
+
+.button {
+  color: darken(treehouseGreen, 70%);
+  outline: 1px darken(treehouseGreen, 20%);
+  text-shadow: 0px 0px -2px lighten(treehouseGreen, 20%);
+
+  &.alert {
+    color: darken(alertColor, 70%);
+    outline: 1px darken(alertColor, 20%);
+    text-shadow: 0px 0px -2px lighten(alertColor, 20%);
+  }
+
+  &.active {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2) inset;
+    background-color: darken(treehouseGreen, 40%);
+    color: treehouseGreen;
+  }
+
+  &.boy {
+    background-color: boyColor;
+    color: darken(boyColor, 40%);
+    outline: 1px darken(boyColor, 20%);
+    text-shadow: 0px 0px -2px lighten(boyColor, 20%);
+    height: 32px;
+    line-height: 1.5;
+
+    &.active {
+      background-color: boyDarkColor;
+      color: boyColor;
+    }
+  }
+
+  &.girl {
+    background-color: girlColor;
+    color: desaturate(darken(girlColor, 40%), 50%);
+    outline: 1px darken(girlColor, 20%);
+    text-shadow: 0px 0px -2px lighten(girlColor, 20%);
+    height: 32px;
+    line-height: 1.5;
+
+    &.active {
+      background-color: girlDarkColor;
+      color: girlColor;
+    }
+  }
+}
+
+#child-timeline {
+  height: 70px;
+  overflow: visible;
+
+  svg {
+    overflow: visible;
+  }
+
+  line.main {
+    stroke: treehouseBrown;
+    stroke-width: 3px;
+  }
+
+  line.tick {
+    stroke: treehouseBrown;
+    stroke-width: 2px;
+  }
+
+  circle.boy {
+    fill: boyColor;
+    stroke: darken(boyColor, 20%);
+    stroke-width: 1px;
+  }
+
+  circle.girl {
+    fill: girlColor;
+    stroke: darken(girlColor, 20%);
+    stroke-width: 1px;
+  }
+
+  text.boy {
+    stroke: none;
+    fill: boyColor;
+  }
+
+  text.girl {
+    stroke: none;
+    fill: girlColor;
+  }
+}
+
+#login-buttons {
+  position: absolute;
+  padding: 10px;
+  z-index: 200;
+  border: 2px solid treehouseGreen;
+  border-top: none;
+  border-radius: 6px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(desaturate(lighten(treehouseGreen, 75%), 50%), desaturate(lighten(treehouseGreen, 65%), 50%))
+
+  .accounts-dialog {
+    padding-top: 10px;
+
+    .login-close-text {
+      display: none;
+    }
+
+    .or {
+      text-align: center;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    
+      .hline {
+        text-decoration: line-through;
+        color: treehouseGreen;
+      }
+
+      .or-text {
+        font-weight: bold;
+      }
+    }
+
+    .additional-link-container {
+      padding-top: 6px;
+      padding-left: 6px;
+      text-align: right;
+    }
+
+    .login-button {
+      width: 100%;
+      text-align: center;
+    }
+
+    .configure-button {
+      background-color: alertColor;
+      border: 1px solid #d03406;
+      color: darken(alertColor, 70%);
+      outline: 1px darken(alertColor, 20%);
+      text-shadow: 0px 0px -2px lighten(alertColor, 20%); 
+    }
+
+    .error-message {
+      padding: 10px;
+      color: alertColor;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+
+  a {
+    cursor: pointer;
+  }
+}
+
+.login-button {
+  border-radius: 3px;
+  background: treehouseGreen;
+  width: auto;
+  color: darken(treehouseGreen, 70%);
+  outline: 1px darken(treehouseGreen, 20%);
+  text-shadow: 0px 0px -2px lighten(treehouseGreen, 20%);
+  border: 1px solid #436e18;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 10px 20px 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    color: white;
+    background-color: #50831c;
+  }
+
+  &:active {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2) inset;
+    background-color: darken(treehouseGreen, 40%);
+    color: treehouseGreen;
+  }
+}
+
+configure-login-service-dialog-width = 530;
+
+.accounts-centered-dialog {
+  z-index: 1001;
+  position: absolute;
+
+  left: 50%;
+  margin-left: -configure-login-service-dialog-width / 2;
+
+  top: 50%;
+  margin-top: -40px;
+
+  border: 2px solid treehouseGreen;
+  border-radius: 6px;
+
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(desaturate(lighten(treehouseGreen, 75%), 50%), desaturate(lighten(treehouseGreen, 65%), 50%));
+
+  padding: 10px;
+}
+
+#configure-login-service-dialog {
+  width: -configure-login-service-dialog-width;
+  margin-left: -configure-login-service-dialog-width / 2;
+  margin-top: -180px;
+
+  table {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    font-family: "Courier New", Courier, monospace;
+  }
+
+  ol {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    li {
+      margin-left: 30px;
+    }
+  }
+
+  .configuration_labels {
+    width: 30%;
+  }
+
+  .configuration_inputs {
+    width: 70%;
+  }
+
+  .new-section {
+    margin-top: 10px;
+  }
+
+  .url {
+    font-family: "Courier New", Courier, monospace;
+  }
+
+  .accounts-close {
+    display: none;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  .configure-login-service-dismiss-button {
+    background-color: #e9e9e9;
+    color: #1d1d1d;
+    border: 1px solid #c3c3c3;
+
+    &:hover {
+      background-color: #d0d0d0;
+    }
+
+    &:active {
+      box-shadow: 0 0 5px #e9e9e9, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    }
+  }
+}
+
+#login-buttons-facebook {
+  color: white;
+  background-color: facebookBlue;
+  border: 1px solid darken(facebookBlue, 20%);
+  font-weight: normal;
+
+  &:hover {
+    background-color: darken(facebookBlue, 20%);
+  }
+
+  &:active {
+    box-shadow: 0 0 5px #e9e9e9, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+  }
+}
+
+#configure-login-service-dialog-save-configuration {
+  float: right;
+}
+
+.title-header {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  height: 40px;
+  padding-top: 10px;
+}
+
+.subtitle-header {
+  font-size: 20px;
+  text-align: center;
+}
+
+.interest-tags {
+  width: 100%;
+}
+
+.block {
+  width: 190px;
+  height: 190px;
+  margin: 5px;
+  float: left;
+  background-color: red;
+}
