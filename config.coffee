@@ -30,6 +30,8 @@ exports.config =
     options:
       max_line_length:
         value: 100
+  server:
+    path: 'server.coffee'
 
   # Enable or disable minifying of result js / css files.
   # minify: true
