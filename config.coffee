@@ -26,6 +26,10 @@ exports.config =
         'css/app.css': /^(app|vendor)/
     templates:
       joinTo: 'js/templates.js'
+  coffeelint:
+    options:
+      max_line_length:
+        value: 100
 
   # Enable or disable minifying of result js / css files.
   # minify: true
