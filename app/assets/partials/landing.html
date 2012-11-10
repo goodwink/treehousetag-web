@@ -25,25 +25,25 @@
         <label class="hide-for-small">Name</label>
         <div class="row">
           <div class="six columns">
-            <input type="text" ng-model="signup.firstName" placeholder="First name" />
+            <input type="text" ng-model="signup.user.firstName" placeholder="First name" />
           </div>
           <div class="six columns">
-            <input type="text" ng-model="signup.lastName" placeholder="Last name" />
+            <input type="text" ng-model="signup.user.lastName" placeholder="Last name" />
           </div>
         </div>
         <label class="hide-for-small">Account</label>
         <div class="row">
           <div class="six columns">
-            <input type="email" ng-model="signup.email" placeholder="E-mail address" />
+            <input type="email" ng-model="signup.user.email" placeholder="E-mail address" />
           </div>
           <div class="six columns">
-            <input type="password" ng-model="signup.password" placeholder="Password" />
+            <input type="password" ng-model="signup.user.password" placeholder="Password" />
           </div>
         </div>
-        <label class="hide-for-small">Location</label>
-        <div class="row">
+        <label class="hide-for-small" ng-hide="locationSaved">Location</label>
+        <div class="row" ng-hide="locationSaved">
           <div class="six mobile-two columns">
-            <input id="zip-code" type="text" ng-model="signup.zipCode" pattern="[0-9]*" placeholder="Zip code" />
+            <input id="zip-code" type="text" ng-model="signup.user.zipCode" pattern="[0-9]*" placeholder="Zip code" />
           </div>
           <div class="or one column hide-for-small">
             or
@@ -54,6 +54,10 @@
               Find me
             </a>
           </div>
+        </div>
+        <div class="alert-box success" ng-show="locationSaved">
+          <i class="icon-map-marker"></i>
+          Location saved.
         </div>
         <div class="row spread-row">
           <div class="six columns offset-by-six">

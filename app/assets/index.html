@@ -29,15 +29,45 @@
         </div>
       </div>
       <div class="three offset-by-seven mobile-two columns">
+        <div id="login-buttons">
+          <div class="login-link-and-dropdown-list login-form-sign-in">
+            <a class="login-link-text" ng-click="dropdownOpen = !dropdownOpen" ng-hide="loggedIn()">Sign in ▾</a>
+            <a class="login-link-text" ng-click="dropdownOpen = !dropdownOpen" ng-show="loggedIn()">{{user.email}} ▾</a>
+            <div id="login-dropdown-list" class="accounts-dialog" ng-show="dropdownOpen">
+              <div class="login-form login-password-form" ng-hide="loggedIn()">
+                <div id="login-email-label-and-input">
+                  <label id="login-email-label" for="login-email">
+                    Email
+                  </label>
+                  <input id="login-email" ng-model="login.email" type="email">
+                </div>
+                <div id="login-password-label-and-input">
+                  <label id="login-password-label" for="login-password">
+                    Password
+                  </label>
+                  <input id="login-password" ng-model="login.password" type="password">
+                </div>
+                <div class="login-button login-button-form-submit" ng-click="logIn()" id="login-buttons-password">
+                  Sign in
+                </div>
+                <div class="additional-link-container">
+                  <a id="forgot-password-link" class="additional-link">Forgot password</a>
+                </div>
+              </div>
+            </div>
+            <div ng-show="loggedIn()">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="container" ng-switch on="loggedIn">
+    <div class="container" ng-switch on="loggedIn()">
       <div class="row" ng-switch-when=true>
         <div class="two columns mobile-one">
           <ul class="nav-bar vertical">
             <li>
-              <a href="/home">
+              <a href="#/home">
                 <div class="row">
                   <div class="three columns four-mobile">
                     <i class="icon-home"></i>
@@ -51,7 +81,7 @@
               </a>
             </li>
             <li>
-              <a href="/invitations">
+              <a href="#/invitations">
                 <div class="row">
                   <div class="three columns four-mobile">
                     <i class="icon-tags"></i>
@@ -65,7 +95,7 @@
               </a>
             </li>
             <li>
-              <a href="/calendar">
+              <a href="#/calendar">
                 <div class="row">
                   <div class="three columns four-mobile">
                     <i class="icon-calendar"></i>
@@ -79,7 +109,7 @@
               </a>
             </li>
             <li>
-              <a href="/activites">
+              <a href="#/activites">
                 <div class="row">
                   <div class="three columns four-mobile">
                     <i class="icon-map-marker"></i>
@@ -93,7 +123,7 @@
               </a>
             </li>
             <li>
-              <a href="/profile">
+              <a href="#/profile">
                 <div class="row">
                   <div class="three columns four-mobile">
                     <i class="icon-user"></i>

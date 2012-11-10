@@ -20,8 +20,7 @@
         <div class="row">
           <div class="twelve columns">
             <p>
-              What do your kids like to do?  Just start typing and we'll try to match existing
-              interests or you can create new, unique interests.
+              What do your kids like to do?
             </p>
           </div>
         </div>
@@ -30,10 +29,16 @@
           <div class="panel ten columns offset-by-one end">
             <form class="interests">
               <label>{{child.firstName}}'s Interests</label>
-              <input ui-select2="tagConfig" ng-multiple="true" type="text" ng-model="child.interests" class="interest-tags">
+              <select ng-multiple="true" ui-select2 ng-model="child.interests" class="interest-tags">
+                <option ng-repeat="interest in interests" value="{{interest.id}}">{{interest.name}}</option>
+              </select>
             </form>
           </div>
         </div>
+
+        <div class="row spread-row">
+          <div class="twelve columns">
+            By clicking the 'Finish' button below you agree to use the Treehouse Tag service in accordance with our <a href="#/terms">Terms and Conditions</a>.
 
         <div class="row spread-row">
           <div class="three columns offset-by-nine">

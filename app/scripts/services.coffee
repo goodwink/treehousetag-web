@@ -17,7 +17,7 @@ angular.module('app.services', ['ngResource'])
       ).success((data, status) ->
         if status == 200
           $http.defaults.headers.common['X-Auth-Token'] = data.token
-          success?()
+          success?(data.id)
         else
           error?(data, status)
       ).error((data, status) ->
@@ -35,14 +35,22 @@ angular.module('app.services', ['ngResource'])
   '$resource'
 
   ($resource) ->
-    $resource '/api/users/:userId',
-      userId: '@id'
+    $resource '/api/users/:id',
+      id: '@id'
 ])
 
 .factory('Child', [
   '$resource'
 
   ($resource) ->
-    $resource '/api/children/:childId',
-      childId: '@id'
+    $resource '/api/children/:id',
+      id: '@id'
+])
+
+.factory('Interest', [
+  '$resource'
+
+  ($resource) ->
+    $resource '/api/interests/:id',
+      id: '@id'
 ])

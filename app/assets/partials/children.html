@@ -24,23 +24,6 @@
             </p>
           </div>
         </div>
-        
-        <div class="row">
-            <div id="child-timeline" class="ten columns end offset-by-one hide">
-              <svg>
-                <line x1="0%" y1="35px" x2="100%" y2="35px" class="main" />
-                <line x1="10%" y1="30px" x2="10%" y2="40px" class="tick" />
-                <line x1="20%" y1="30px" x2="20%" y2="40px" class="tick" />
-                <line x1="30%" y1="30px" x2="30%" y2="40px" class="tick" />
-                <line x1="40%" y1="30px" x2="40%" y2="40px" class="tick" />
-                <line x1="50%" y1="30px" x2="50%" y2="40px" class="tick" />
-                <line x1="60%" y1="30px" x2="60%" y2="40px" class="tick" />
-                <line x1="70%" y1="30px" x2="70%" y2="40px" class="tick" />
-                <line x1="80%" y1="30px" x2="80%" y2="40px" class="tick" />
-                <line x1="90%" y1="30px" x2="90%" y2="40px" class="tick" />
-              </svg>
-            </div>
-        </div>
 
         <form id="signup-step-two">
           <div class="row spread-row" ng-repeat="child in signup.children">
@@ -48,7 +31,7 @@
               <input type="text" ng-model="child.firstName" placeholder="First name" />
             </div>
             <div class="three columns">
-              <input datepicker type="text" ng-model="child.birthDate" placeholder="Birthday" />
+              <input datepicker type="text" ng-model="child.birthday" placeholder="Birthday" />
             </div>
             <div class="three columns">
               <ul class="button-group radius">
