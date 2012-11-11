@@ -2,14 +2,20 @@
 
 ### Sevices ###
 
-angular.module('app.services', ['ngResource'])
+angular.module('app.services', ['ngResource', 'ngCookies'])
 
 .factory('version', -> '0.1')
 
 .factory('Session', [
   '$http'
+  '$cookieStore'
+  '$location'
+  '$timeout'
+  'User'
 
-  ($http) ->
+  ($http, $cookieStore, $location, $timeout, User) ->
+    currentUser: null
+
     login: (email, password, success, error) ->
       $http.post('/api/sessions',
         email: email,
@@ -17,7 +23,10 @@ angular.module('app.services', ['ngResource'])
       ).success((data, status) ->
         if status == 200
           $http.defaults.headers.common['X-Auth-Token'] = data.token
-          success?(data.id)
+          $cookieStore.put('userId', data.id)
+          $cookieStore.put('userToken', data.token)
+          @currentUser = User.get({id: data.id})
+          success?()
         else
           error?(data, status)
       ).error((data, status) ->
@@ -29,6 +38,25 @@ angular.module('app.services', ['ngResource'])
       delete $http.defaults.headers.common['X-Auth-Token']
       
       success?()
+
+    checkOrRedirect: () ->
+      unless @currentUser?
+        if ((cookieUserId = $cookieStore.get('userId')) &&
+            (cookieToken = $cookieStore.get('userToken')))
+          $http.defaults.headers.common['X-Auth-Token'] = cookieToken
+
+          @currentUser = User.get(
+            {id: cookieUserId},
+            (->),
+            (->
+              $location.path('/')
+            )
+          )
+        else
+          $location.path('/')
+
+    user: ->
+      @currentUser
 ])
 
 .factory('User', [

@@ -21,11 +21,14 @@ angular.module('app.controllers', [])
     $scope.activeNavId = path || '/'
   )
 
+  $scope.Session = Session
+  $scope.$watch('Session.user()', (user) ->
+    $scope.user = user
+  )
+
   $scope.signup =
     user: {}
     children: [{}]
-
-  $scope.user = null
 
   # getClass compares the current url with the id.
   # If the current url starts with the id it returns 'active'
@@ -42,12 +45,12 @@ angular.module('app.controllers', [])
       return ''
 
   $scope.loggedIn = ->
-    $scope.user?
+    Session.user()?
 
   $scope.logIn = ->
-    Session.login $scope.login.email, $scope.login.password, (id) ->
+    Session.login $scope.login.email, $scope.login.password, ->
       $scope.dropdownOpen = false
-      $scope.user = User.get({id: id})
+      $scope.user = Session.user()
       $location.path('/home')
       # FIXME: handle this error
 ])
@@ -121,11 +124,11 @@ angular.module('app.controllers', [])
 
 .controller('HomeCtrl', [
   '$scope'
-  '$location'
+  'Session'
+  '$timeout'
 
-($scope, $location) ->
-  unless $scope.loggedIn()
-    $location.path('/')
+($scope, Session, $timeout) ->
+  Session.checkOrRedirect()
 
   $scope.activitySuggestions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
