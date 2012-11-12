@@ -125,11 +125,17 @@ angular.module('app.controllers', [])
 .controller('HomeCtrl', [
   '$scope'
   'Session'
-  '$timeout'
+  'Recommendation'
 
-($scope, Session, $timeout) ->
+($scope, Session, Recommendation, Child) ->
   Session.checkOrRedirect()
 
-  $scope.activitySuggestions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  $scope.placeSuggestions = Recommendation.query()
+
+  $scope.styleForSuggestion = (suggestion) ->
+    if suggestion?.place?.image?
+      {"background-image": "url('#{suggestion.place.image}')"}
+    else
+      {}
 
 ])

@@ -20,7 +20,7 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
       $http.post('/api/sessions',
         email: email,
         password: password
-      ).success((data, status) ->
+      ).success((data, status) =>
         if status == 200
           $http.defaults.headers.common['X-Auth-Token'] = data.token
           $cookieStore.put('userId', data.id)
@@ -62,7 +62,7 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
 .factory('User', [
   '$resource'
 
-  ($resource) ->
+  User = ($resource) ->
     $resource '/api/users/:id',
       id: '@id'
 ])
@@ -80,5 +80,13 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
 
   ($resource) ->
     $resource '/api/interests/:id',
+      id: '@id'
+])
+
+.factory('Recommendation', [
+  '$resource'
+
+  ($resource) ->
+    $resource '/api/recommendations/:id',
       id: '@id'
 ])

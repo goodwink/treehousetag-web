@@ -1,7 +1,7 @@
 <div class="row">
   <div class="twelve columns">
-    <div class="block" masonry ng-repeat="activity in activitySuggestions">
-      
+    <div class="block" masonry ng-repeat="suggestion in placeSuggestions" ng-style="styleForSuggestion(suggestion)">
+      {{suggestion.place.name}}
     </div>
   </div>
 </div>
