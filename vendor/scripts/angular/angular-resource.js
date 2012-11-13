@@ -295,7 +295,7 @@ angular.module('ngResource', ['ng']).
         url = url.replace(/\/?#$/, '');
         var query = [];
         forEach(params, function(value, key){
-          if (!self.urlParams[key] && !self.headerParams[key]) {
+          if (!self.urlParams[key]) {
             query.push(encodeUriQuery(key) + '=' + encodeUriQuery(value));
           }
         });

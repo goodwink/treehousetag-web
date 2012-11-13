@@ -95,6 +95,14 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
   '$resource'
 
   ($resource) ->
-    Friend = $resource '/api/friends/:id',
+    $resource '/api/friends/:id',
       id: '@id'
+])
+
+.factory('UserFriend', [
+  '$resource'
+
+  ($resource) ->
+    $resource '/api/users/:userId/friends/:friendId', {userId: '@userId', friendId: '@friendId'},
+      addFriend: {method: 'PUT'}
 ])

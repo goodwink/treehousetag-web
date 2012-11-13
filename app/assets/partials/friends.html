@@ -35,7 +35,24 @@
               <i class="icon-plus"></i>
               Add
             </a>
-            <span ng-hide="$last"><i ng-class="friend.statusIcon"></i> <span class="request-status">{{friend.statusText}}</span></span>
+            <span ng-hide="$last"><i ng-class="friend.statusIcon"></i> <span class="request-status">{{friend.statusText}}</span></span> 
+          </div>
+        </div>
+        <div class="row spread-row">
+          <div class="twelve columns">
+            <strong>People you may already know...</strong>
+          </div>
+        </div>
+        <div class="row spread-row" ng-repeat="suggestion in friendSuggestions">
+          <div class="eight columns">
+            <img class="small-profile-image" ng-src="{{gravatarSmall(suggestion.email)}}">
+            {{suggestion.firstName}} {{suggestion.lastName}}
+          </div>
+          <div class="three columns">
+            <a href class="small radius button icon-button" ng-click="addFriendSuggestion(suggestion)">
+              <i class="icon-plus"></i>
+              Add
+            </a>
           </div>
         </div>
       </form>

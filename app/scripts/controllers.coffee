@@ -55,12 +55,13 @@ angular.module('app.controllers', [])
       # FIXME: handle this error
 
   $scope.gravatar = (email) ->
-    hash = md5(email.trim().toLowerCase())
-
-    "http://www.gravatar.com/avatar/#{hash}?d=monsterid"
+    if email?
+      hash = md5(email.trim().toLowerCase())
+      "http://www.gravatar.com/avatar/#{hash}?d=monsterid"
 
   $scope.gravatarSmall = (email) ->
-    $scope.gravatar(email) + "&s=24"
+    if email?
+      $scope.gravatar(email) + "&s=24"
 ])
 
 .controller('LandingCtrl', [
@@ -152,11 +153,17 @@ angular.module('app.controllers', [])
   '$scope'
   'Session'
   'Friend'
+  'UserFriend'
+  'User'
 
-($scope, Session, Friend) ->
+($scope, Session, Friend, UserFriend, User) ->
+  Session.checkOrRedirect()
+  
   $scope.newFriends = [{}]
 
   $scope.friends = Friend.query()
+
+  $scope.friendSuggestions = Friend.query({suggested: true})
 
   $scope.addFriendRequest = (friend) ->
     Friend.save friend, (invitation) ->
@@ -173,6 +180,10 @@ angular.module('app.controllers', [])
 
     $scope.newFriends.push({})
 
-  Session.checkOrRedirect()
+  $scope.addFriendSuggestion = (suggestion) ->
+    UserFriend.addFriend {userId: $scope.user.id, friendId: suggestion.id}, () ->
+      $scope.friends.push(User.get({id: suggestion.id}))
+      $scope.friendSuggestions = $scope.friendSuggestions.filter (s) ->
+        s != suggestion
 
 ])
