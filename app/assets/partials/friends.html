@@ -5,6 +5,18 @@
         <h3><i class="icon-group"></i> My Friends</h3>
       </div>
     </div>
+    <div class="row">
+      <div class="twelve columns">
+        <div class="block" masonry ng-repeat="friend in friends" >
+          <div class="block-inner">
+            <img ng-src="{{gravatar(friend.email)}}">
+          </div>
+          <div class="block-caption">
+            {{friend.firstName}}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="six columns">
     <div class="panel radius">

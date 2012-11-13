@@ -53,6 +53,11 @@ angular.module('app.controllers', [])
       $scope.user = Session.user()
       $location.path('/home')
       # FIXME: handle this error
+
+  $scope.gravatar = (email) ->
+    hash = md5(email.trim().toLowerCase())
+
+    "http://www.gravatar.com/avatar/#{hash}?d=monsterid"
 ])
 
 .controller('LandingCtrl', [
@@ -151,10 +156,7 @@ angular.module('app.controllers', [])
   $scope.friends = Friend.query()
 
   $scope.addFriendRequest = (friend) ->
-    friend.statusIcon = ["icon-share", "status-icon"]
-    friend.statusText = "Sending"
-
-    Friend.request friend.firstName, friend.email, (invitation) ->
+    Friend.save friend, (invitation) ->
       if invitation.status == 'sent'
         friend.statusText = "Sent!"
       else
@@ -162,6 +164,9 @@ angular.module('app.controllers', [])
         friend.statusIcon = ["icon-ok", "status-icon"]
 
         $scope.friends.push(invitation)
+
+    friend.statusIcon = ["icon-share", "status-icon"]
+    friend.statusText = "Sending"
 
     $scope.newFriends.push({})
 
