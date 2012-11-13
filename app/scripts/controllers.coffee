@@ -139,3 +139,32 @@ angular.module('app.controllers', [])
       {}
 
 ])
+
+.controller('FriendsCtrl', [
+  '$scope'
+  'Session'
+  'Friend'
+
+($scope, Session, Friend) ->
+  $scope.newFriends = [{}]
+
+  $scope.friends = Friend.query()
+
+  $scope.addFriendRequest = (friend) ->
+    friend.statusIcon = ["icon-share", "status-icon"]
+    friend.statusText = "Sending"
+
+    Friend.request friend.firstName, friend.email, (invitation) ->
+      if invitation.status == 'sent'
+        friend.statusText = "Sent!"
+      else
+        friend.statusText = "Complete!"
+        friend.statusIcon = ["icon-ok", "status-icon"]
+
+        $scope.friends.push(invitation)
+
+    $scope.newFriends.push({})
+
+  Session.checkOrRedirect()
+
+])

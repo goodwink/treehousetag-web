@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="six columns">
+    <div class="row">
+      <div class="twelve columns">
+        <h3><i class="icon-group"></i> My Friends</h3>
+      </div>
+    </div>
+  </div>
+  <div class="six columns">
+    <div class="panel radius">
+      <i class="icon-bullhorn big-icon"></i>
+      <h3>Invite new friends</h3>
+      <form id="add-friends">
+        <div class="row clear-left" ng-repeat="friend in newFriends">
+          <div class="three columns">
+            <input type="text" ng-model="friend.firstName" placeholder="First name" />
+          </div>
+          <div class="six columns">
+            <input type="email" ng-model="friend.email" placeholder="E-mail address" />
+          </div>
+          <div class="three columns">
+            <a href class="small radius button icon-button" ng-click="addFriendRequest(friend)" ng-show="$last">
+              <i class="icon-plus"></i>
+              Add
+            </a>
+            <span ng-hide="$last"><i ng-class="friend.statusIcon"></i> <span class="request-status">{{friend.statusText}}</span></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

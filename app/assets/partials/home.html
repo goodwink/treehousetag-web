@@ -1,7 +1,12 @@
-<div class="row">
+<div class="row place-suggestions">
   <div class="twelve columns">
-    <div class="block" masonry ng-repeat="suggestion in placeSuggestions" ng-style="styleForSuggestion(suggestion)">
-      {{suggestion.place.name}}
+    <div class="block" masonry ng-repeat="suggestion in placeSuggestions" >
+      <div class="block-inner">
+        <img ng-src="{{suggestion.place.image}}" ng-show="suggestion.place.image">
+      </div>
+      <div class="block-caption">
+        {{suggestion.place.name}}
+      </div>
     </div>
   </div>
 </div>

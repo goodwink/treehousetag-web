@@ -90,3 +90,22 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
     $resource '/api/recommendations/:id',
       id: '@id'
 ])
+
+.factory('Friend', [
+  '$http'
+  '$resource'
+
+  ($http, $resource) ->
+    Friend = $resource '/api/friends/:id',
+      id: '@id'
+
+    Friend.prototype.request = (firstName, email, success) ->
+      $http.post('/api/friends',
+        "first-name": firstName
+        email: email
+      ).success((data, status) ->
+        success?(data)
+      )
+
+    Friend
+])

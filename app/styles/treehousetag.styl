@@ -76,6 +76,10 @@ form {
   }
 }
 
+.clear-left {
+  clear: left;
+}
+
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
   background: treehouseLighterGreen;
   border: 1px solid treehouseLightGreen;
@@ -85,15 +89,31 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   }
 }
 
-i.big-leaf {
+i.big-icon {
   float: left;
   font-size: 71px;
   color: treehouseGreen;
   margin-right: 10px;
 }
 
+i.status-icon {
+  font-size: 30px;
+  line-height: 2px;
+  color: treehouseGreen;
+}
+
+.request-status {
+  line-height: 30px;
+  font-weight: bold;
+  color: treehouseGreen;
+}
+
 p {
   font-size: 17px;
+}
+
+h3 {
+  color: treehouseBrown;
 }
 
 .spread-row {
@@ -291,14 +311,12 @@ ul.selling-points {
   }
 }
 
-configure-login-service-dialog-width = 530;
-
 .accounts-centered-dialog {
   z-index: 1001;
   position: absolute;
 
   left: 50%;
-  margin-left: -configure-login-service-dialog-width / 2;
+  margin-left: -530 / 2;
 
   top: 50%;
   margin-top: -40px;
@@ -310,68 +328,6 @@ configure-login-service-dialog-width = 530;
   background: linear-gradient(desaturate(lighten(treehouseGreen, 75%), 50%), desaturate(lighten(treehouseGreen, 65%), 50%));
 
   padding: 10px;
-}
-
-#configure-login-service-dialog {
-  width: -configure-login-service-dialog-width;
-  margin-left: -configure-login-service-dialog-width / 2;
-  margin-top: -180px;
-
-  table {
-    width: 100%;
-  }
-
-  input {
-    width: 100%;
-    font-family: "Courier New", Courier, monospace;
-  }
-
-  ol {
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    li {
-      margin-left: 30px;
-    }
-  }
-
-  .configuration_labels {
-    width: 30%;
-  }
-
-  .configuration_inputs {
-    width: 70%;
-  }
-
-  .new-section {
-    margin-top: 10px;
-  }
-
-  .url {
-    font-family: "Courier New", Courier, monospace;
-  }
-
-  .accounts-close {
-    display: none;
-  }
-
-  a {
-    cursor: pointer;
-  }
-
-  .configure-login-service-dismiss-button {
-    background-color: #e9e9e9;
-    color: #1d1d1d;
-    border: 1px solid #c3c3c3;
-
-    &:hover {
-      background-color: #d0d0d0;
-    }
-
-    &:active {
-      box-shadow: 0 0 5px #e9e9e9, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-    }
-  }
 }
 
 #login-buttons-facebook {
@@ -410,10 +366,29 @@ configure-login-service-dialog-width = 530;
   width: 100%;
 }
 
+.place-suggestions {
+  min-height: 100%;
+}
+
 .block {
-  width: 190px;
-  height: 190px;
+  border-radius: 3px;
+  border: 2px solid treehouseGreen;
+
   margin: 5px;
   float: left;
-  background-color: red;
+  background-color: treehouseLighterGreen;
+
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+
+  .block-inner {
+    width: 100%;
+    max-width: 290px;
+  }
+
+  .block-caption {
+    height: 35px;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+  }
 }
