@@ -58,6 +58,9 @@ angular.module('app.controllers', [])
     hash = md5(email.trim().toLowerCase())
 
     "http://www.gravatar.com/avatar/#{hash}?d=monsterid"
+
+  $scope.gravatarSmall = (email) ->
+    $scope.gravatar(email) + "&s=24"
 ])
 
 .controller('LandingCtrl', [

@@ -32,6 +32,7 @@
         <div id="login-buttons">
           <div class="login-link-and-dropdown-list login-form-sign-in">
             <a class="login-link-text" ng-click="dropdownOpen = !dropdownOpen" ng-hide="loggedIn()">Sign in ▾</a>
+            <img class="small-profile-image" ng-src="{{gravatarSmall(user.email)}}" ng-show="loggedIn()">
             <a class="login-link-text" ng-click="dropdownOpen = !dropdownOpen" ng-show="loggedIn()">{{user.email}} ▾</a>
             <div id="login-dropdown-list" class="accounts-dialog" ng-show="dropdownOpen">
               <div class="login-form login-password-form" ng-hide="loggedIn()">
