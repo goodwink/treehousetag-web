@@ -38,7 +38,7 @@
             <span ng-hide="$last"><i ng-class="friend.statusIcon"></i> <span class="request-status">{{friend.statusText}}</span></span> 
           </div>
         </div>
-        <div class="row spread-row">
+        <div class="row spread-row" ng-hide="friendSuggestions.length == 0">
           <div class="twelve columns">
             <strong>People you may already know...</strong>
           </div>
