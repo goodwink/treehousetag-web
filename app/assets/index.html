@@ -46,7 +46,7 @@
                   <label id="login-password-label" for="login-password">
                     Password
                   </label>
-                  <input id="login-password" ng-model="login.password" type="password">
+                  <input id="login-password" ng-model="login.password" type="password" on-enter="logIn()">
                 </div>
                 <div class="login-button login-button-form-submit" ng-click="logIn()" id="login-buttons-password">
                   Sign in

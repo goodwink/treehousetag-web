@@ -72,3 +72,11 @@ angular.module('app.directives', [
           itemSelector: '.block'
           columnWidth: 20
 )
+
+.directive('onEnter', ->
+  (scope, element, attrs) ->
+    element.keyup (event) ->
+      if event.which == 13
+        event.preventDefault()
+        scope.$apply(attrs.onEnter)
+)
