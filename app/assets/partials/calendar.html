@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="six columns">
+    <div class="row">
+      <div class="twelve columns">
+        <div class="event-calendar">
+          <div class="month-title">
+            {{monthFormatted}}
+          </div>
+          <div class="month">
+            <div ng-repeat="day in month" ng-class="dayClass(day)" ng-style="dayWidth(day)">
+              {{day}}
+            </div>
+          </div>
+          <div class="event" ng-repeat="event in events">
+            <div class="day">
+              {{event.day}}
+            </div>
+            <div class="time">
+              {{event.timeFormatted}}
+            </div>
+            <div class="title">
+              {{event.title}}
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

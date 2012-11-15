@@ -158,7 +158,7 @@ angular.module('app.controllers', [])
 
 ($scope, Session, Friend, UserFriend, User) ->
   Session.checkOrRedirect()
-  
+
   $scope.newFriends = [{}]
 
   $scope.friends = Friend.query()
@@ -186,4 +186,43 @@ angular.module('app.controllers', [])
       $scope.friendSuggestions = $scope.friendSuggestions.filter (s) ->
         s != suggestion
 
+])
+
+.controller('CalendarCtrl', [
+  '$scope'
+  'Session'
+  'Event'
+
+($scope, Session, Event) ->
+  Session.checkOrRedirect()
+
+  $scope.monthFormatted = moment().format("MMMM YYYY")
+
+  $scope.month = (i for i in [1..moment().daysInMonth()])
+
+  $scope.dayWidth = (day) ->
+    if day < 10
+      {width: "#{20 / 9}%"}
+    else
+      {width: "#{80 / ($scope.month.length - 9)}%"}
+
+  $scope.events = [
+    {day: 20, timeFormatted: moment().format("h:mm a"), title: "Foooo!"}
+    {day: 27, timeFormatted: "10:12 pm", title: "Bar!!!"}
+  ]
+
+  $scope.dayClass = (day) ->
+    classes = ['day']
+
+    if day < moment().date()
+      classes.push('past')
+    else
+      classes.push('future')
+
+    busy = $scope.events.some (event) ->
+      event.day == day
+
+    if busy then classes.push('busy')
+
+    classes
 ])

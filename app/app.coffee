@@ -34,6 +34,9 @@ App.config([
     .when '/friends',
       templateUrl: '/partials/friends.html'
       controller: 'FriendsCtrl'
+    .when '/calendar',
+      templateUrl: '/partials/calendar.html'
+      controller: 'CalendarCtrl'
 
     # Catch all
     .otherwise({redirectTo: '/'})

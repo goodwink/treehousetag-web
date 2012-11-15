@@ -396,3 +396,88 @@ ul.selling-points {
     font-size: 16px;
   }
 }
+
+.event-calendar {
+  background-color: treehouseLighterGreen;
+  float: left;
+  position: relative;
+
+  .month {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 10px;
+    width: 100%;
+    float: left;
+    position: relative;
+    border-bottom: 1px solid darken(treehouseLighterGreen, 10%);
+    margin-bottom: 10px;
+
+    .day {
+      float: left;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    .future {
+      color: treehouseGreen;
+    }
+
+    .past {
+      color: treehouseLightGreen;
+    }
+
+    .busy {
+      color: alertColor;
+    }
+  }
+
+  .event {
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 100%;
+    float: left;
+    margin-bottom: 5px;
+    position: relative;
+
+    .day {
+      background-color: treehouseGreen;
+      border-radius: 3px;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      float: left;
+      line-height: 30px;
+      text-align: center;
+    }
+
+    .time {
+      background-color: treehouseLightGreen;
+      border-radius: 3px;
+      width: 100px;
+      height: 30px;
+      font-size: 20px;
+      float: left;
+      margin-left: 10px;
+      line-height: 30px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 20px;
+      float: left;
+      margin-left: 15px;
+      line-height: 30px;
+    }
+  }
+
+  .month-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: darken(treehouseLighterGreen, 10%);
+  }
+}

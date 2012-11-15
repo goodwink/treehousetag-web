@@ -106,3 +106,11 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
     $resource '/api/users/:userId/friends/:friendId', {userId: '@userId', friendId: '@friendId'},
       addFriend: {method: 'PUT'}
 ])
+
+.factory('Event', [
+  '$resource'
+
+  ($resource) ->
+    $resource '/api/events/:id',
+      id: '@id'
+])
