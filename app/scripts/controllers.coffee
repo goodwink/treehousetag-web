@@ -214,6 +214,13 @@ angular.module('app.controllers', [])
 
   $scope.invitations = Event.query()
 
+  $scope.rsvp = (invitation, rsvp) ->
+    Event.rsvp {id: invitation.event.id, rsvp: rsvp}, (results) ->
+      results.forEach (result) ->
+        $scope.schedules.push(result) if rsvp
+        $scope.invitations = $scope.invitations.filter (i) ->
+          i != invitation
+
   $scope.dayFormatted = (schedule) ->
     moment(schedule.event.time).date()
 

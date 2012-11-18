@@ -53,14 +53,14 @@
           <div class="one column">
             <div class="row">
               <div class="twelve columns">
-                <a href ng-click="invitation.accept()" class="tiny-square radius button">
+                <a href ng-click="rsvp(invitation, true)" class="tiny-square radius button">
                   <i class="icon-ok"></i>
                 </a>
               </div>
             </div>
             <div class="row">
               <div class="twelve columns">
-                <a href ng-click="invitation.reject()" class="tiny-square radius alert button">
+                <a href ng-click="rsvp(invitation, false)" class="tiny-square radius alert button">
                   <i class="icon-remove"></i>
                 </a>
               </div>

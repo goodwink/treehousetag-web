@@ -121,6 +121,6 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
   '$resource'
 
   ($resource) ->
-    $resource '/api/events/:id',
-      id: '@id'
+    $resource '/api/events/:id', {id: '@id'},
+      rsvp: {method: 'PUT', isArray: true}
 ])
