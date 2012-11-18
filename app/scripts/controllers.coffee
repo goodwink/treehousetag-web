@@ -11,8 +11,9 @@ angular.module('app.controllers', [])
   '$rootScope'
   'Session'
   'User'
+  '$timeout'
 
-($scope, $location, $resource, $rootScope, Session, User) ->
+($scope, $location, $resource, $rootScope, Session, User, $timeout) ->
 
   # Uses the url to determine if the selected
   # menu item should have the class active.
@@ -24,6 +25,9 @@ angular.module('app.controllers', [])
   $scope.Session = Session
   $scope.$watch('Session.user()', (user) ->
     $scope.user = user
+  )
+  $scope.$watch('Session.children()', (children) ->
+    $scope.children = children
   )
 
   $scope.signup =
@@ -206,10 +210,18 @@ angular.module('app.controllers', [])
     else
       {width: "#{80 / ($scope.month.length - 9)}%"}
 
-  $scope.events = [
-    {day: 20, timeFormatted: moment().format("h:mm a"), title: "Foooo!"}
-    {day: 27, timeFormatted: "10:12 pm", title: "Bar!!!"}
-  ]
+  $scope.schedules = Event.query({accepted: true})
+
+  $scope.invitations = Event.query()
+
+  $scope.dayFormatted = (schedule) ->
+    moment(schedule.event.time).date()
+
+  $scope.dateFormatted = (schedule) ->
+    moment(schedule.event.time).format("M/d")
+
+  $scope.timeFormatted = (schedule) ->
+    moment(schedule.event.time).format("h:mm a")
 
   $scope.dayClass = (day) ->
     classes = ['day']
@@ -219,8 +231,10 @@ angular.module('app.controllers', [])
     else
       classes.push('future')
 
-    busy = $scope.events.some (event) ->
-      event.day == day
+    busy = $scope.schedules.some (schedule) ->
+      date = moment(schedule.event.time)
+
+      date.date() == day && date.month() == moment().month
 
     if busy then classes.push('busy')
 

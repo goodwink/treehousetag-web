@@ -401,6 +401,11 @@ ul.selling-points {
   background-color: treehouseLighterGreen;
   float: left;
   position: relative;
+  border: 2px solid treehouseGreen;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-height: 200px;
 
   .month {
     padding-left: 3px;
@@ -462,8 +467,14 @@ ul.selling-points {
       text-align: center;
     }
 
+    .child {
+      line-height: 30px;
+      margin-left: 8px;
+      float: left;
+    }
+
     .title {
-      font-size: 20px;
+      font-size: 16px;
       float: left;
       margin-left: 15px;
       line-height: 30px;
@@ -478,6 +489,47 @@ ul.selling-points {
     margin-bottom: 10px;
     padding-top: 4px;
     padding-bottom: 4px;
-    background-color: darken(treehouseLighterGreen, 10%);
+    background: linear-gradient(desaturate(lighten(treehouseGreen, 75%), 50%), desaturate(lighten(treehouseGreen, 65%), 50%))
+  }
+}
+
+.row div.invitation {
+  margin-top: 10px;
+  border: solid 2px treehouseGreen;
+  background-color: treehouseLighterGreen;
+
+  .time-row {
+    height: 27px;
+
+    .time {
+      font-size: 20px;
+      padding-top: 6px;
+    }
+  }
+
+  .date-row {
+    height: 27px;
+
+    .date {
+      font-size: 22px;
+      padding-top: 3px;
+    }
+  }
+
+  .title {
+    padding: 4px;
+    font-size: 17px;
+    text-align: center;
+  }
+
+  .tiny-square {
+    font-size: 10px;
+    margin-top: 1px;
+    padding-top: 8px;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 27px;
+    height: 27px;
+    text-align: center;
   }
 }

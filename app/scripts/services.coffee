@@ -12,8 +12,9 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
   '$location'
   '$timeout'
   'User'
+  'Child'
 
-  ($http, $cookieStore, $location, $timeout, User) ->
+  ($http, $cookieStore, $location, $timeout, User, Child) ->
     currentUser: null
 
     login: (email, password, success, error) ->
@@ -25,7 +26,10 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
           $http.defaults.headers.common['X-Auth-Token'] = data.token
           $cookieStore.put('userId', data.id)
           $cookieStore.put('userToken', data.token)
-          @currentUser = User.get({id: data.id})
+          @currentUser = User.get {id: data.id}, =>
+            @currentChildren =
+              @currentUser.children.map (childId) ->
+                Child.get({id: childId})
           success?()
         else
           error?(data, status)
@@ -47,7 +51,10 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
 
           @currentUser = User.get(
             {id: cookieUserId},
-            (->),
+            (=>
+              @currentChildren = @currentUser.children.map (childId) ->
+                Child.get({id: childId})
+            ),
             (->
               $location.path('/')
             )
@@ -57,6 +64,9 @@ angular.module('app.services', ['ngResource', 'ngCookies'])
 
     user: ->
       @currentUser
+
+    children: ->
+      @currentChildren
 ])
 
 .factory('User', [

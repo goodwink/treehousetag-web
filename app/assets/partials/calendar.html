@@ -11,18 +11,62 @@
               {{day}}
             </div>
           </div>
-          <div class="event" ng-repeat="event in events">
+          <div class="event" ng-repeat="schedule in schedules">
             <div class="day">
-              {{event.day}}
+              {{dayFormatted(schedule)}}
             </div>
             <div class="time">
-              {{event.timeFormatted}}
+              {{timeFormatted(schedule)}}
             </div>
             <div class="title">
-              {{event.title}}
+              {{schedule.event.title}}
+            </div>
+            <div class="child">
+              <span class="radius secondary label" ng-repeat="child in children | filter:schedule.childId">
+                {{child.firstName}}
+              </span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="six columns">
+    <div class="row">
+      <div class="twelve columns">
+        <div class="row invitation" ng-repeat="invitation in invitations">
+          <div class="three columns">
+            <div class="row date-row">
+              <div class="date twelve columns">
+                {{dateFormatted(invitation)}}
+              </div>
+            </div>
+            <div class="row time-row">
+              <div class="time twelve columns">
+                {{timeFormatted(invitation)}}
+              </div>
+            </div>
+          </div>
+          <div class="title eight columns">
+            <a href>{{invitation.event.title}}</a>
+          </div>
+          <div class="one column">
+            <div class="row">
+              <div class="twelve columns">
+                <a href ng-click="invitation.accept()" class="tiny-square radius button">
+                  <i class="icon-ok"></i>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="twelve columns">
+                <a href ng-click="invitation.reject()" class="tiny-square radius alert button">
+                  <i class="icon-remove"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
